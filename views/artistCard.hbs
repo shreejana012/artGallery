@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Artists List</title>
+    <style>
+      body { font-family: Arial, sans-serif; background-color: #fff; color: #333; margin: 0; padding: 0; } .header {
+      background-color: #2596be; color: white; text-align: center; padding: 10px 0; } .footer { background-color:
+      #2596be; color: white; text-align: center; position: fixed; bottom: 0; width: 100%; padding: 10px 0; } h1 {
+      margin-bottom: 20px; } ul { list-style-type: none; padding: 0; } li { border: 1px solid #2596be; background-color:
+      #fff; padding: 15px; margin-bottom: 10px; } a { text-decoration: none; color: inherit; } .container {
+      padding-left: 40px; padding-right: 40px; padding-bottom: 40px;} .add-button { padding: 10px 15px;
+      background-color: #2596be; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; display:
+      inline-block; margin-bottom: 20px; } .add-button:hover { background-color: #1d7b9d; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Art Gallery</h2>
+    </div>
+
+    <div class="container">
+      <h1>Artists</h1>
+      <p>Want to check exhibitions? <a href="/exhibitions">Click here</a></p>
+
+      <a id="addArtistBtn" class="add-button">Add Artist</a>
+
+      <div
+        id="addArtistModal"
+        style="display:none; position:fixed; z-index:1; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgb(0,0,0); background-color:rgba(0,0,0,0.4); padding-top:60px;"
+      >
+        <div style="background-color:#fefefe; margin:auto; padding:20px; border:1px solid #888; width:50%;">
+          <span
+            id="closeModal"
+            style="color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;"
+          >&times;</span>
+          <h2>Add New Artist</h2>
+          <form id="addArtistForm" style="font-family: Arial, sans-serif;" action="/" method="post">
+            <div style="margin-bottom: 10px;">
+              <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter artist's name"
+                style="width: 100%; padding: 8px;"
+              />
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label for="biography" style="display: block; margin-bottom: 5px;">Biography:</label>
+              <textarea
+                id="biography"
+                name="biography"
+                placeholder="Enter artist's biography"
+                style="width: 100%; padding: 8px;"
+              ></textarea>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label for="nationality" style="display: block; margin-bottom: 5px;">Nationality:</label>
+              <input
+                type="text"
+                id="nationality"
+                name="nationality"
+                placeholder="Enter artist's nationality"
+                style="width: 100%; padding: 8px;"
+              />
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label for="birthdate" style="display: block; margin-bottom: 5px;">Birth Date:</label>
+              <input type="date" id="birthdate" name="birthdate" style="width: 100%; padding: 8px;" />
+            </div>
+            <input
+              type="submit"
+              value="Save"
+              style="background-color: #2596be; color: white; padding: 10px 15px; border: none; cursor: pointer;"
+            />
+          </form>
+
+        </div>
+      </div>
+      <ul>
+        {{#each artists}}
+          <li>
+            <div>
+              <a href="/artists/{{this.ARTISTID}}">
+                <h3>{{this.NAME}}</h3>
+                <p>{{this.BIRTHDATE}}</p>
+                <p>{{this.NATIONALITY}}</p>
+              </a>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2023 Art Gallery. All rights reserved.</p>
+    </div>
+
+    <script>
+      var modal = document.getElementById("addArtistModal"); var btn = document.getElementById("addArtistBtn"); var span
+      = document.getElementById("closeModal"); btn.onclick = function() { modal.style.display = "block"; }; span.onclick
+      = function() { modal.style.display = "none"; }; window.onclick = function(event) { if (event.target == modal) {
+      modal.style.display = "none"; } };
+    </script>
+  </body>
+</html>

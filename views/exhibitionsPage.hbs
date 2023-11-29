@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Artists List</title>
+    <style>
+      body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 0; } .header {
+      background-color: #2596be; color: white; text-align: center; padding: 10px 0; } .footer { background-color:
+      #2596be; color: white; text-align: center; position: fixed; bottom: 0; width: 100%; padding: 10px 0; } h1 {
+      margin-bottom: 20px; } ul { list-style-type: none; padding: 0; } li { border: 1px solid #2596be; background-color:
+      #fff; padding: 15px; margin-bottom: 10px; } a { text-decoration: none; color: inherit; } .container {
+      padding-left: 40px; padding-right: 40px; } .back-button { padding: 10px 15px; background-color: #2596be; color:
+      white; text-decoration: none; border-radius: 5px; font-size: 14px; display: inline-block; margin-bottom: 20px; }
+      .back-button:hover { background-color: #1d7b9d; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Welcome to the Exhibition Showcase</h2>
+    </div>
+
+    <div class="container">
+      <div style="margin-top: 10px">
+        <a href="javascript:history.back()" class="back-button">Go Back</a>
+      </div>
+      <h1>Exhibitions</h1>
+
+      <ul>
+        {{#each exhibitions}}
+          <li>
+            <div>
+              <a>
+                <h3>{{this.NAME}}</h3>
+                <p>{{this.STARTDATE}}</p>
+                <p>{{this.ENDDATE}}</p>
+                <p>{{this.LOCATION}}</p>
+              </a>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2023 Art Gallery. All rights reserved.</p>
+    </div>
+  </body>
+</html>
