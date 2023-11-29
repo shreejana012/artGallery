@@ -7,9 +7,11 @@ To run this app:
 #1 For database connection, create .env file on root folder.
 Then, add these:
 
-`DATABASE_USER="your database username"`
-`DATABASE_PASSWORD="your database password"`
-`DATABASE_CONNECTSTRING="database connection string for eg: oracle1.centennialcollege.ca or IP address."`
+```
+DATABASE_USER="your database username"
+DATABASE_PASSWORD="your database password"
+DATABASE_CONNECTSTRING="database connection string for eg: oracle1.centennialcollege.ca or IP address."
+```
 
 #2 To run in localhost
 
